@@ -70,6 +70,13 @@ class Pelicula {
     releaseDate      = json['release_date'];
 
   }
+
+  getPosterImage() {
+    if ( posterPath == null) {
+      return 'https://cidco-smartcity.niua.org/wp-content/uploads/2017/08/No-image-found.jpg';
+    }
+    return 'https://image.tmdb.org/t/p/w500/$posterPath';
+  }
 }
 
 
