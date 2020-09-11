@@ -77,6 +77,13 @@ class Pelicula {
     }
     return 'https://image.tmdb.org/t/p/w500/$posterPath';
   }
+
+    getBackgroundImage() {
+    if ( backdropPath == null) {
+      return 'https://cidco-smartcity.niua.org/wp-content/uploads/2017/08/No-image-found.jpg';
+    }
+    return 'https://image.tmdb.org/t/p/w500/$backdropPath';
+  }
 }
 
 
