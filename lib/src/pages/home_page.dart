@@ -22,7 +22,7 @@ class HomePage extends StatelessWidget {
             onPressed: () {
               showSearch(context: context, 
               delegate: DataSearch(),
-              query: 'Hola')  ;
+              query: '')  ;
             },
           )
         ],

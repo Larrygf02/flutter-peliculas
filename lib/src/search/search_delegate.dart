@@ -1,6 +1,21 @@
 import 'package:flutter/material.dart';
 
 class DataSearch extends SearchDelegate {
+
+  final peliculas = [
+    'Spiderman',
+    'Aquaman',
+    'Batman',
+    'Shazam',
+    'IronMan',
+    'Capitan America'
+  ];
+
+  final peliculasRecientes = [
+    'Spiderman',
+    'Capitan America'
+  ];
+
   @override
   List<Widget> buildActions(BuildContext context) {
       // Las acciones de nuestro AppBar
@@ -36,8 +51,21 @@ class DataSearch extends SearchDelegate {
   
     @override
     Widget buildSuggestions(BuildContext context) {
-    // Sugerencias cuando la persona escribe
-    return Container();
+      // Sugerencias cuando la persona escribe
+
+      final listaSugerida = (query.isEmpty) 
+                            ? peliculasRecientes
+                            : peliculas.where((p) => p.toLowerCase().startsWith(query)).toList();
+      
+      return ListView.builder(
+        itemCount: listaSugerida.length,
+        itemBuilder: (context, i) {
+          return ListTile(
+            leading: Icon(Icons.movie),
+            title: Text(listaSugerida[i])
+          );
+        },
+      );
   }
 
 }
